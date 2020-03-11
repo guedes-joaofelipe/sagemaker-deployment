@@ -1,0 +1,31 @@
+.topnav {
+    margin: 0;
+    padding: 0;
+    background-color: #303C47;  
+    overflow: hidden;  
+    font-size: 30px;
+}
+
+.udacity-logo {
+    width: 500px;
+}
+
+body {
+    color: #FAFAFB;
+    background-color: #303C47;
+  }
+
+.submit-button {
+    background-color: #4CAF50;
+    padding: 8px 24px;
+    border-radius: 4px;
+    padding: 10px 24px;
+    width: 100%;
+    border: 1px solid #4CAF50;
+    font-size: 14px;
+}
+
+.submit-button:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+  }
