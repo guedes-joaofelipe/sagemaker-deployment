@@ -14,6 +14,13 @@ body {
     color: #FAFAFB;
     background-color: #303C47;
   }
+.result-negative {
+    color: red;
+}
+
+.result-positive {
+    color: #4CAF50;
+}
 
 .submit-button {
     background-color: #4CAF50;

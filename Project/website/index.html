@@ -7,22 +7,38 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script src="script.js"></script>
         <link rel="stylesheet" href="styles.css">
-    </head>
+        <script>
+         "use strict";
+         function submitForm(oFormElement) {
+             var xhr = new XMLHttpRequest();
+             xhr.onload = function() {
+                 var result = parseFloat(xhr.responseText);
+                 var resultElement = document.getElementById('result');
+                 if (result == 0) {
+                     resultElement.className = 'result-negative';
+                     resultElement.innerHTML = 'Your review was NEGATIVE!';
+                 } else {
+                     resultElement.className = 'result-positive';
+                     resultElement.innerHTML = 'Your review was POSITIVE!';
+                 }
+             }
+             xhr.open (oFormElement.method, oFormElement.action, true);
+             var review = document.getElementById('review');
+             xhr.send (review.value);
+             return false;
+         }
+        </script>
 
+    </head>
     <body>
-        <ul class="topnav">
-            <!-- <img class="udacity-logo" src="https://cdn.freebiesupply.com/logos/thumbs/2x/udacity-2-logo.png" alt="Udacity Logo"> -->
+        <ul class="topnav">            
             <img class="udacity-logo" src="img/udacity-logo.png" alt="Udacity Logo">
             Machine Learning Engineer Nanodegree
         </ul>
-        <div class="container">
-            <h1>Movie Review Sentiment Analysis</h1>
-            
-            <p>How would a trained machine classify your review on a movie? Let's find out!</p>
+        <div class="container">            
             <form method="POST"
-                  action="https://sqggilbhs6.execute-api.us-east-1.amazonaws.com/prod"
+                  action="https://mciq2ju2q4.execute-api.us-east-1.amazonaws.com/prod"
                   onsubmit="return submitForm(this);" >                     <!-- HERE IS WHERE YOU NEED TO ENTER THE API URL -->
                 <div class="form-group">
                     <!-- <label for="review">Review:</label> -->
@@ -30,7 +46,7 @@
                 </div>
                 <button type="submit" class="btn btn-default submit-button">Classify</button>
             </form>
-            <h1 class="bg-success" id="result"></h1>
+            <h1 id="result" background-color="black"></h1>
         </div>
     </body>
 </html>
